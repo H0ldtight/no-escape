@@ -1,17 +1,14 @@
-
-using Unity.VisualScripting;
-using UnityEngine;
-public class UserData : MonoBehaviour
+[System.Serializable]
+public class UserData
 {
-    
-    public string userName { get; set; } = "";
-    public int userCash { get; set; } = 0;
-    public int userBalance { get; set; } = 0;
+    public string userName;
+    public int userCash;
+    public int userBalance;
     
     public UserData(string name, int cash, int balance)
     {
         userName = name;
-        userCash = balance;
+        userCash = cash;
         userBalance = balance;
     }
 

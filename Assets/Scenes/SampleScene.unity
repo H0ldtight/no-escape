@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 33968810}
+  - component: {fileID: 33968811}
   m_Layer: 5
   m_Name: UserInfo
   m_TagString: Untagged
@@ -154,6 +155,7 @@ RectTransform:
   - {fileID: 593231021}
   - {fileID: 685803271}
   - {fileID: 59316758}
+  - {fileID: 605522467}
   m_Father: {fileID: 507549108}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
@@ -161,6 +163,21 @@ RectTransform:
   m_AnchoredPosition: {x: -30, y: 200}
   m_SizeDelta: {x: 500, y: 240}
   m_Pivot: {x: 1, y: 0.5}
+--- !u!114 &33968811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33968809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52162c078e6f33a448b3e246f6174e1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userMoney: {fileID: 0}
+  userName: {fileID: 0}
+  Cash: {fileID: 0}
 --- !u!1 &59316757
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,7 +613,6 @@ RectTransform:
   - {fileID: 1240711254}
   - {fileID: 33968810}
   - {fileID: 1836627605}
-  - {fileID: 605522467}
   m_Father: {fileID: 2010440458}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -900,11 +916,11 @@ RectTransform:
   m_Children:
   - {fileID: 1006973836}
   - {fileID: 949592827}
-  m_Father: {fileID: 507549108}
+  m_Father: {fileID: 33968810}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 80, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1560, y: -200}
   m_SizeDelta: {x: 480, y: 200}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &605522468
@@ -1091,7 +1107,7 @@ GameObject:
   - component: {fileID: 949592829}
   - component: {fileID: 949592828}
   m_Layer: 5
-  m_Name: Value
+  m_Name: userCash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1225,7 +1241,7 @@ GameObject:
   - component: {fileID: 1006973838}
   - component: {fileID: 1006973837}
   m_Layer: 5
-  m_Name: Money
+  m_Name: Text_Money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1384,6 +1400,62 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -120}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!1 &1341439392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1341439394}
+  - component: {fileID: 1341439393}
+  m_Layer: 5
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1341439393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341439392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de601ee228162d343b6a7a88ccfffb09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userData:
+    userName: 
+    userCash: 0
+    userBalance: 0
+  userName: {fileID: 0}
+  userCash: {fileID: 0}
+  userBalance: {fileID: 0}
+--- !u!224 &1341439394
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341439392}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2010440458}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 960, y: 540}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1436156586
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,7 +2032,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 507549108}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1341439394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2106,5 +2178,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 2010440458}
+  - {fileID: 1341439394}
   - {fileID: 1726814239}
