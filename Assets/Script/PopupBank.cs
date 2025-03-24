@@ -1,13 +1,12 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class PopupBank: MonoBehaviour
 {
     public GameObject ATM;
     public GameObject Deposit;
-    public GameManager userData;
+    public UserData userData;
     [SerializeField]
     public GameObject Withdraw;// 변경할 UI 요소
     public Button SelectDeposit;
@@ -22,6 +21,7 @@ public class PopupBank: MonoBehaviour
         SelectWithdraw.onClick.AddListener(WithdrawToggleButton);
 
         Button[] buttons = GameObject.FindObjectsOfType<Button>(true);
+        
         foreach (Button button in buttons)
         {
             if (button.CompareTag("Back"))
@@ -38,7 +38,7 @@ public class PopupBank: MonoBehaviour
             if (button.CompareTag("Withdraw"))
             {
 
-                button.onClick.AddListener(BackButton);
+                //button.onClick.AddListener(WithdrawButton);
             }
         }
     }
@@ -52,12 +52,13 @@ public class PopupBank: MonoBehaviour
         Withdraw.SetActive(false);
     }
 
-    void DepositToggleButton()
+    void DepositButton(Button button)
     {
         Text buttonText = button.GetComponentInChildren<Text>();
         // userData에 반영
-        userData += value;
-
+        int value;
+        int.TryParse(buttonText.text, out value);
+        userData.userBalance += value;
     }
 
     void WithdrawToggleButton()
