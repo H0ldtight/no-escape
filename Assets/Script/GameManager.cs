@@ -13,24 +13,18 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // 초기 데이터 설정 (예시)
-        userData = new UserData("Player1", 1000, 5000);
-
-        // 데이터 초기화 후 UI에 반영
-        RefreshUI();
+        userData = new UserData("오우택", 100000, 50000);
+        Refresh();
     }
 
     // UI에 데이터를 반영하는 메서드
-    public void RefreshUI()
+    public void Refresh()
     {
-        // TextMeshProUGUI 컴포넌트를 통해 데이터 출력
-        if (userName != null)
-            userName.text = "Name: " + userData.userName;
-
-        if (userCash != null)
-            userCash.text = "Cash: " + userData.userCash.ToString("C0");  // 현금을 통화 형식으로 출력
-
-        if (userBalance != null)
-            userBalance.text = "Balance: " + userData.userBalance.ToString("C0");  // 통장 잔액을 통화 형식으로 출력
+        if (userName != null && userCash != null && userBalance != null)
+        {
+            userName.text = userData.userName;
+            userCash.text = userData.userCash.ToString("N0");
+            userBalance.text = userData.userBalance.ToString("N0");
+        }
     }
 }
