@@ -1,3 +1,11 @@
+using UnityEngine;
+
+public class UserDataManager: MonoBehaviour
+{
+    /**PlayerController로서 필요한 변수와 메서드가 있다 **/
+    public UserData userData;
+}
+
 [System.Serializable]
 public class UserData
 {

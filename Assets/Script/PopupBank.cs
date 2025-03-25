@@ -1,13 +1,13 @@
+using System.IO;
 using System.Xml;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PopupBank: MonoBehaviour
+public class PopupBank : MonoBehaviour
 {
     [SerializeField]
-
     public UserData userData;
 
     public GameObject Insufficient;
@@ -15,84 +15,43 @@ public class PopupBank: MonoBehaviour
     public GameObject Deposit;
     public GameObject Withdraw;
 
-    public Button SelectDeposit;
-    public Button SelectWithdraw;// 버튼
-
+    private GameObject clickedButton;
 
     void Start()
     {
         Withdraw.SetActive(false);
         Deposit.SetActive(false);
         Insufficient.SetActive(false);
-
-        // 버튼 클릭 이벤트에 함수 연결
-        SelectDeposit.onClick.AddListener(DepositToggleButton);
-        SelectWithdraw.onClick.AddListener(WithdrawToggleButton);
-
-        Button[] buttons = GameObject.FindObjectsOfType<Button>(true);
-        
-        foreach (Button button in buttons)
-        {
-            if (button.CompareTag("Back"))
-            {
-                button.onClick.AddListener(BackButton);
-            }
-
-            if (button.CompareTag("Deposit"))
-            {
-
-                button.onClick.AddListener(() => DepositButton(button));
-            }
-
-            if (button.CompareTag("InputDeposit"))
-            {
-
-                button.onClick.AddListener(() => InputDepositButton(button));
-            }
-
-            if (button.CompareTag("Withdraw"))
-            {
-
-                //button.onClick.AddListener(WithdrawButton);
-            }
-            if (button.CompareTag("Insufficient"))
-            {
-                button.onClick.AddListener(InsufficientButton);
-            }
-        }
+        clickedButton = null;
     }
 
-
-    // UI 요소의 활성화 상태를 토글하는 함수
-    void DepositToggleButton()
-    {
-        ATM.SetActive(false);
-        Deposit.SetActive(true);
-        Withdraw.SetActive(false);
-    }
     public void SetUserData(UserData data)
     {
         userData = data;
     }
-
-    void DepositButton(Button button)
+    private void SetClickedButton()
     {
-        TMP_Text tmpText = button.GetComponentInChildren<TMP_Text>();
-        DepositProcess(tmpText.text);
+        clickedButton = EventSystem.current.currentSelectedGameObject;
     }
 
-    void InputDepositButton(Button button)
+    // UI 요소의 활성화 상태를 토글하는 함수
+    public void DepositButtonAction(int value)
     {
-        TMP_InputField InputField = button.GetComponentInChildren<TMP_InputField>();
-        // userData에 반영
-        DepositProcess(InputField.text);
+        SetClickedButton();
+        DepositProcess(value);
     }
-    
-    void DepositProcess(string textValue)
+
+    public void InputDepositButtonAction()  // 인스펙터에서 연결할 함수
     {
-        textValue = textValue.Replace(",", ""); // 콤마 제거
-        int value;
-        int.TryParse(textValue, out value);
+        SetClickedButton();
+        TMP_InputField inputField = clickedButton.GetComponentInChildren<TMP_InputField>();
+        string textValue = inputField.text.Replace(",", "");
+        int.TryParse(textValue, out int value);
+        DepositProcess(value);
+    }
+
+    public void DepositProcess(int value)
+    {
         if (value <= userData.userCash)
         {
             userData.userBalance += value;
@@ -102,25 +61,40 @@ public class PopupBank: MonoBehaviour
         {
             Insufficient.SetActive(true);
         }
+        GameManager.Instance.SaveUserData();
         GameManager.Instance.Refresh();
     }
 
-    void WithdrawToggleButton()
+    public void DepositToggleButton()
     {
+        SetClickedButton();
+        ATM.SetActive(false);
+        Deposit.SetActive(true);
+        Withdraw.SetActive(false);
+    }
+
+    public void WithdrawToggleButton()
+    {
+        SetClickedButton();
         ATM.SetActive(false);
         Withdraw.SetActive(true);
         Deposit.SetActive(false);
     }
 
-    void BackButton()
+    public void BackButtonAction()
     {
+        SetClickedButton();
         ATM.SetActive(true);
         Deposit.SetActive(false);
         Withdraw.SetActive(false);
     }
 
-    void InsufficientButton()
+    public void InsufficientButtonAction()
     {
+        GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
         Insufficient.SetActive(false);
     }
+    
 }
+
+
