@@ -154,13 +154,12 @@ RectTransform:
   - {fileID: 593231021}
   - {fileID: 59316758}
   - {fileID: 685803271}
-  - {fileID: 605522467}
   m_Father: {fileID: 507549108}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -30, y: 220}
-  m_SizeDelta: {x: 500, y: 200}
+  m_SizeDelta: {x: 650, y: 200}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!1 &36711549
 GameObject:
@@ -1566,17 +1565,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461899835}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1983179337}
-  m_Father: {fileID: 1918467274}
+  m_Father: {fileID: 2021438455}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -430, y: 0}
   m_SizeDelta: {x: 420, y: 90}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &461899837
@@ -1727,7 +1726,7 @@ GameObject:
   - component: {fileID: 461905775}
   - component: {fileID: 461905774}
   m_Layer: 5
-  m_Name: spartaBank
+  m_Name: SpartaBank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2016,9 +2015,11 @@ RectTransform:
   m_Children:
   - {fileID: 1240711254}
   - {fileID: 33968810}
+  - {fileID: 605522467}
   - {fileID: 1836627605}
   - {fileID: 1265864865}
   - {fileID: 651207702}
+  - {fileID: 827387272}
   m_Father: {fileID: 2010440458}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2076,11 +2077,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eab0c17300586b42864aaa710d016b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  userData:
+    userName: 
+    userCash: 0
+    userBalance: 0
+  Insufficient: {fileID: 827387271}
   ATM: {fileID: 1836627604}
   Deposit: {fileID: 1265864864}
   Withdraw: {fileID: 651207701}
   SelectDeposit: {fileID: 1534195162}
   SelectWithdraw: {fileID: 1436156588}
+  ClickInsufficient: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2628,11 +2635,11 @@ RectTransform:
   m_Children:
   - {fileID: 1006973836}
   - {fileID: 949592827}
-  m_Father: {fileID: 33968810}
+  m_Father: {fileID: 507549108}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1560, y: -200}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 40, y: 0}
   m_SizeDelta: {x: 480, y: 200}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &605522468
@@ -2776,7 +2783,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 100}
+  m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &685803272
 MonoBehaviour:
@@ -3664,7 +3671,7 @@ GameObject:
   - component: {fileID: 827387272}
   m_Layer: 5
   m_Name: Insufficient
-  m_TagString: Untagged
+  m_TagString: Insufficient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3684,7 +3691,7 @@ RectTransform:
   - {fileID: 38670128}
   - {fileID: 560145672}
   - {fileID: 1876505063}
-  m_Father: {fileID: 2010440458}
+  m_Father: {fileID: 507549108}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3860,7 +3867,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 40, y: 40}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &949592828
 MonoBehaviour:
@@ -5063,6 +5070,7 @@ MonoBehaviour:
     userName: 
     userCash: 0
     userBalance: 0
+  popupBank: {fileID: 507549111}
   userName: {fileID: 59316759}
   userCash: {fileID: 949592828}
   userBalance: {fileID: 685803272}
@@ -6036,7 +6044,7 @@ GameObject:
   - component: {fileID: 1918467275}
   m_Layer: 5
   m_Name: Inputdeposit
-  m_TagString: Deposit
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6055,7 +6063,6 @@ RectTransform:
   m_Children:
   - {fileID: 701194268}
   - {fileID: 2021438455}
-  - {fileID: 461899836}
   m_Father: {fileID: 1265864865}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6417,7 +6424,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 507549108}
-  - {fileID: 827387272}
   m_Father: {fileID: 1341439394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6439,7 +6445,7 @@ GameObject:
   - component: {fileID: 2021438456}
   m_Layer: 5
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: InputDeposit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6457,6 +6463,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 785695723}
+  - {fileID: 461899836}
   m_Father: {fileID: 1918467274}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
@@ -6813,7 +6820,7 @@ GameObject:
   - component: {fileID: 2078207957}
   - component: {fileID: 2078207956}
   m_Layer: 5
-  m_Name: atm
+  m_Name: ATM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
