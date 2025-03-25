@@ -1,6 +1,7 @@
 using System.IO;
 using System.Xml;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -60,6 +61,38 @@ public class PopupBank : MonoBehaviour
         else
         {
             Insufficient.SetActive(true);
+            return;
+        }
+        GameManager.Instance.SaveUserData();
+        GameManager.Instance.Refresh();
+    }
+
+    public void WithdrawButtonAction(int value)
+    {
+        SetClickedButton();
+        WithdrawProcess(value);
+    }
+
+    public void InputWithdrawButtonAction()  // 인스펙터에서 연결할 함수
+    {
+        SetClickedButton();
+        TMP_InputField inputField = clickedButton.GetComponentInChildren<TMP_InputField>();
+        string textValue = inputField.text.Replace(",", "");
+        int.TryParse(textValue, out int value);
+        WithdrawProcess(value);
+    }
+
+    public void WithdrawProcess(int value)
+    {
+        if (value <= userData.userBalance)
+        {
+            userData.userBalance -= value;
+            userData.userCash += value;
+        }
+        else
+        {
+            Insufficient.SetActive(true);
+            return;
         }
         GameManager.Instance.SaveUserData();
         GameManager.Instance.Refresh();
