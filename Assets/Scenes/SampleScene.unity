@@ -538,9 +538,9 @@ RectTransform:
   - {fileID: 685903336}
   m_Father: {fileID: 651207702}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -100}
   m_SizeDelta: {x: 600, y: 90}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &68962115
@@ -589,7 +589,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 507549111}
         m_TargetAssemblyTypeName: PopupBank, Assembly-CSharp
-        m_MethodName: WithdrawButtonAction
+        m_MethodName: WithdrawProcess
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -938,9 +938,9 @@ RectTransform:
   - {fileID: 1688436186}
   m_Father: {fileID: 651207702}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -300}
   m_SizeDelta: {x: 600, y: 90}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &142325341
@@ -989,7 +989,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 507549111}
         m_TargetAssemblyTypeName: PopupBank, Assembly-CSharp
-        m_MethodName: WithdrawButtonAction
+        m_MethodName: WithdrawProcess
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2254,9 +2254,9 @@ RectTransform:
   - {fileID: 1622426758}
   m_Father: {fileID: 651207702}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 600, y: -500}
   m_SizeDelta: {x: 600, y: 90}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &478367148
@@ -2957,7 +2957,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &651207702
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3496,7 +3496,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 507549111}
         m_TargetAssemblyTypeName: PopupBank, Assembly-CSharp
-        m_MethodName: DepositButtonAction
+        m_MethodName: DepositProcess
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4284,8 +4284,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 651207702}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 600, y: 90}
   m_Pivot: {x: 0, y: 1}
@@ -4471,7 +4471,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 507549111}
         m_TargetAssemblyTypeName: PopupBank, Assembly-CSharp
-        m_MethodName: DepositButtonAction
+        m_MethodName: DepositProcess
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5728,7 +5728,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 507549111}
         m_TargetAssemblyTypeName: PopupBank, Assembly-CSharp
-        m_MethodName: DepositButtonAction
+        m_MethodName: DepositProcess
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6765,9 +6765,9 @@ RectTransform:
   - {fileID: 1311531196}
   m_Father: {fileID: 651207702}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -200}
   m_SizeDelta: {x: 600, y: 90}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2024104657
@@ -6816,7 +6816,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 507549111}
         m_TargetAssemblyTypeName: PopupBank, Assembly-CSharp
-        m_MethodName: WithdrawButtonAction
+        m_MethodName: WithdrawProcess
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7166,9 +7166,9 @@ RectTransform:
   - {fileID: 2115680933}
   m_Father: {fileID: 651207702}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -400}
   m_SizeDelta: {x: 600, y: 90}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2110481129
@@ -7403,8 +7403,8 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 519420032}
   - {fileID: 1341439394}
   - {fileID: 1726814239}
   - {fileID: 2010440458}
   - {fileID: 278314583}
+  - {fileID: 519420032}

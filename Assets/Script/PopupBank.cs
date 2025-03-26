@@ -1,10 +1,5 @@
-using System.IO;
-using System.Xml;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class PopupBank : MonoBehaviour
 {
@@ -16,36 +11,23 @@ public class PopupBank : MonoBehaviour
     public GameObject Deposit;
     public GameObject Withdraw;
 
-    private GameObject clickedButton;
-
     void Start()
     {
+        // 시작시, 창 UI 비활성화
         Withdraw.SetActive(false);
         Deposit.SetActive(false);
         Insufficient.SetActive(false);
-        clickedButton = null;
     }
-
     public void SetUserData(UserData data)
     {
         userData = data;
     }
-    private void SetClickedButton()
+    
+    public void InputDepositButtonAction()
     {
-        clickedButton = EventSystem.current.currentSelectedGameObject;
-    }
-
-    // UI 요소의 활성화 상태를 토글하는 함수
-    public void DepositButtonAction(int value)
-    {
-        SetClickedButton();
-        DepositProcess(value);
-    }
-
-    public void InputDepositButtonAction()  // 인스펙터에서 연결할 함수
-    {
-        SetClickedButton();
-        TMP_InputField inputField = clickedButton.GetComponentInChildren<TMP_InputField>();
+        // 하위 개체에서 TMP_InputField 컴포넌트를 찾아 변수에 할당
+        TMP_InputField inputField = GetComponentInChildren<TMP_InputField>();
+        // 쉼표 제거 후 textValue에 저장
         string textValue = inputField.text.Replace(",", "");
         int.TryParse(textValue, out int value);
         DepositProcess(value);
@@ -59,7 +41,8 @@ public class PopupBank : MonoBehaviour
             userData.userCash -= value;
         }
         else
-        {
+        {   
+            // 범위를 초과할 경우, 값을 저장하지 않고 경고창 출력
             Insufficient.SetActive(true);
             return;
         }
@@ -67,16 +50,9 @@ public class PopupBank : MonoBehaviour
         GameManager.Instance.Refresh();
     }
 
-    public void WithdrawButtonAction(int value)
+    public void InputWithdrawButtonAction()
     {
-        SetClickedButton();
-        WithdrawProcess(value);
-    }
-
-    public void InputWithdrawButtonAction()  // 인스펙터에서 연결할 함수
-    {
-        SetClickedButton();
-        TMP_InputField inputField = clickedButton.GetComponentInChildren<TMP_InputField>();
+        TMP_InputField inputField = GetComponentInChildren<TMP_InputField>();
         string textValue = inputField.text.Replace(",", "");
         int.TryParse(textValue, out int value);
         WithdrawProcess(value);
@@ -100,7 +76,7 @@ public class PopupBank : MonoBehaviour
 
     public void DepositToggleButton()
     {
-        SetClickedButton();
+
         ATM.SetActive(false);
         Deposit.SetActive(true);
         Withdraw.SetActive(false);
@@ -108,7 +84,7 @@ public class PopupBank : MonoBehaviour
 
     public void WithdrawToggleButton()
     {
-        SetClickedButton();
+
         ATM.SetActive(false);
         Withdraw.SetActive(true);
         Deposit.SetActive(false);
@@ -116,7 +92,7 @@ public class PopupBank : MonoBehaviour
 
     public void BackButtonAction()
     {
-        SetClickedButton();
+
         ATM.SetActive(true);
         Deposit.SetActive(false);
         Withdraw.SetActive(false);
@@ -124,7 +100,6 @@ public class PopupBank : MonoBehaviour
 
     public void InsufficientButtonAction()
     {
-        GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
         Insufficient.SetActive(false);
     }
     

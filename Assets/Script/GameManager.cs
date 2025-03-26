@@ -1,22 +1,23 @@
 using UnityEngine;
 using TMPro;
-using System.IO;// TextMeshPro를 사용하기 위한 네임스페이스
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; set; }
     // UserData 객체를 public으로 설정하여 인스펙터에서 데이터 확인 가능
+
     public UserData userData;
     public PopupBank popupBank;
     static string folderPath => Path.Combine(Application.dataPath, "UserData");
+    // 폴더 경로 > no-escape\Assets\UserData
     static string fileName = "userData.json";
     string filePath => Path.Combine(folderPath, fileName);
 
 
-    // TextMeshProUGUI 컴포넌트를 UI에서 참조할 변수
-    public TextMeshProUGUI userName;    // 유저 이름 표시
-    public TextMeshProUGUI userCash;        // 현금 표시
-    public TextMeshProUGUI userBalance;     // 통장 잔액 표시
+    public TextMeshProUGUI userName;        // 유저 이름
+    public TextMeshProUGUI userCash;        // 현금
+    public TextMeshProUGUI userBalance;     // 통장 잔액
     void Awake()
     {
         if (Instance == null)
@@ -28,14 +29,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        if (!Directory.Exists(folderPath))
+        if (!Directory.Exists(folderPath))      // 폴더가 경로상에 없으면 폴더 생성
         {
             Directory.CreateDirectory(folderPath);
         }
-        if (!File.Exists(filePath))
+        if (!File.Exists(filePath))             // 파일이 경로상에 없으면 기본값 설정 후 생성
         {
             userData = new UserData("오우택", 100000, 50000);
-            SaveUserData();  // 데이터 저장
+            SaveUserData();                     // 파일 저장
         }
         LoadUserData();
         popupBank.SetUserData(userData);
@@ -49,12 +50,11 @@ public class GameManager : MonoBehaviour
 
     public void SaveUserData()
     {
-        // UserData 객체를 JSON 문자열로 변환
         string jsonData = JsonUtility.ToJson(userData);
 
         // JSON 문자열을 파일에 저장
         File.WriteAllText(filePath, jsonData);
-        Debug.Log("UserData가 저장되었습니다: " + filePath);
+        Debug.Log("저장되었습니다." + filePath);
     }
 
     public void LoadUserData()
@@ -62,9 +62,10 @@ public class GameManager : MonoBehaviour
         // UserData 객체를 JSON 문자열로 변환
         string jsonData = File.ReadAllText(filePath);
         userData = JsonUtility.FromJson<UserData>(jsonData);
-        Debug.Log("UserData가 호출되었습니다: " + filePath);
+        Debug.Log("호출되었습니다: " + filePath);
     }
-    // UI에 데이터를 반영하는 메서드
+    
+
     public void Refresh()
     {
         
